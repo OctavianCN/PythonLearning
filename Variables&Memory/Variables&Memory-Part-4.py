@@ -23,7 +23,7 @@ c.append(10)
 print(a) # a = [1,2,3,4]
 print(c) # c = [1,2,3,4,10]
 
-####################Variables Equality############################
+####################Variables&Memory Equality############################
 # Compare:
 #       - Memory address: is ( is not )- identity operator (var1 is var2) (var1 is not var2) (not(var1 is var2))
 #       - Object state (data): == ( != )- equality operator (var1 == var2) (var1 != var2) (not(var1 == var2))
