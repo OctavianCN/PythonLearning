@@ -63,7 +63,41 @@ def func(a,b=1,*,d,e=True): # a mandatory pos argument(can be named if wanted)
                             # d mandatory keyword argument
                             # e optional keyword argument
 
+## **kwargs ###
 
+# *args (* real perfomer) - scoop up variable amount of remaining positional arguments -> tuple
+# **kwargs (** real performer) - scoop up a variable amount of remaining keyword arguments -> dictionary
+#                              - can be specified even if positiobnal arguments have not been exhausted
+#                              - no parameters after **kwargs
 
+def func(*,d,**kwargs):
+    pass
 
+func(d=1,a=2,b=3)
 
+func(d=1)
+
+def func(**kwargs):
+    pass
+
+func(a=1,b=2,c=3)
+func()
+
+def func(*args,**kwargs):
+    pass
+
+func(1,2,a=10,b=20)
+func()
+
+def func(**others):
+    pass
+
+#def func(a,b,*,**kwargs): -> not working named arguments must follow bare *
+#    pass
+
+#should be
+def func(a,b,*,d,**kwargs): #should have a keyword argument
+    pass
+
+func(1,2,d=10,x=100,y=200)
+func(1,2,x=100,d=20,y=200)
