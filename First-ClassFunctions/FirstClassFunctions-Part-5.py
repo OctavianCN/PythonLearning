@@ -111,3 +111,49 @@ my_f(1,2)
 
 for param in inspect.signature(my_f).parameters.values():
     print('Kind', param.kind) # Kind is positional only
+
+###### Callables #######
+
+# - is any object that can be called using ()
+# - will always return a value (Ex. functions and methods)
+# - to see if a object is callable we can use the function: callable
+
+print(callable(print))
+print(callable('abc'.upper))
+print(callable(str.upper))
+print(callable(callable))
+print(callable(10))
+
+# Types of callables:
+#     - built-in functions print len callable
+#     - built-in methods a_str.upper, a_list.append
+#     - user defined functions
+#     - methods
+#     - classes:  - __new__ -> create the object
+#                 - __init__
+#     - generators, coruoutines
+
+class MyClass:
+    def __init__(self,x = 0):
+        print("Initialzing ...")
+        self.counter = x
+
+print(callable(MyClass)) #true
+a = MyClass(100)
+print(callable(a)) # False
+
+
+class MyClass:
+    def __init__(self,x = 0):
+        print("Initialzing ...")
+        self.counter = x
+    def  __call__(self, x=1):
+        print("Updating counter ..")
+        self.counter += x
+
+b = MyClass()
+MyClass.__call__(b,10)
+print(b.counter)
+print(callable(b)) # True
+b()
+print(b.counter)
